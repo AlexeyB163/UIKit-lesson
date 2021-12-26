@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var textField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,5 +56,28 @@ class ViewController: UIViewController {
         view.backgroundColor = view.backgroundColor?.withAlphaComponent(sliderValue)
         
     }
+    
+    @IBAction func doneButtonPressed() {
+        guard let inputText = textField.text, !inputText.isEmpty else {
+            showAlert(with: "Text field is empty", and: "Please enter your name")
+            return
+        }
+        if let _ = Double(inputText) {
+            showAlert(with: "Wrong format", and: "Please enter your name" )
+            return
+        }
+        mainLabel.text = textField.text
+    }
 }
 
+//MARK: - Private Metod
+extension ViewController {
+    private func showAlert(with title: String, and message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            self.textField.text = ""
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+}
