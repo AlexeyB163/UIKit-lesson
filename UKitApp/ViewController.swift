@@ -36,6 +36,9 @@ class ViewController: UIViewController {
         slider.maximumTrackTintColor = .red
         slider.thumbTintColor = .cyan
         mainLabel.text = String(slider.value)
+        
+        //Date Picker
+        datePicker.locale = Locale(identifier: "ru_RU ")
     }
     
     @IBAction func segmentedControlAction() {
@@ -69,6 +72,14 @@ class ViewController: UIViewController {
             return
         }
         mainLabel.text = textField.text
+    }
+    @IBAction func datePickerAction() {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.locale = Locale(identifier: "ru_RU")
+        
+        
+        mainLabel.text = formatter.string(from: datePicker.date)
     }
 }
 

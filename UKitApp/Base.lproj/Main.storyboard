@@ -61,6 +61,9 @@
                                     </button>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="Ymz-IV-DpM">
                                         <rect key="frame" x="0.0" y="354.5" width="382" height="216"/>
+                                        <connections>
+                                            <action selector="datePickerAction" destination="BYZ-38-t0r" eventType="valueChanged" id="hSQ-dP-Onn"/>
+                                        </connections>
                                     </datePicker>
                                 </subviews>
                             </stackView>
