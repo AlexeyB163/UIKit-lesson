@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var textField: UITextField!
     
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -77,7 +79,7 @@ extension ViewController {
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             self.textField.text = ""
         }
-        alert.addAction(okAction)
+        alert.addAction(okAction )
         present(alert, animated: true)
     }
 }
